@@ -5,9 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 </head>
 <body>
-    <img style="height: 250px" src="https://www.slamdunk.ru/uploads/monthly_2019_08/WxZhq-ZdGNg.jpg.750ba15a127eb85b6075a36a5850a743.jpg" alt="">
+    <div style="display: flex; justify-content: center;">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <div class="main-image-wrapper">
+                <img class="main-image" src="https://www.slamdunk.ru/uploads/monthly_2019_08/WxZhq-ZdGNg.jpg.750ba15a127eb85b6075a36a5850a743.jpg" alt="">
+            </div>
+            <div style="font-size: 2em;">
+                Пепега
+            </div>
+            <div style="font-size: 1em;">
+                clown
+            </div>
+        </div>
+    </div>
+    
+    
+    
     
 </body>
+<style>
+    .main-image-wrapper {
+        width: 250px; 
+        height: 250px; 
+        border: 1px solid silver;
+        margin: 8px;
+        box-shadow: 0 0 16px silver;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .main-image {
+        height: 100%; /* тут поставили такое свойство, чтобы картинка по высоте равнялась высоте обертки */
+    }
+</style>
 </html>
