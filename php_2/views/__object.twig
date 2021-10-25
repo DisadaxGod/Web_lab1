@@ -2,19 +2,21 @@
 
 {% block content %}
 <div>
-    {{title}} -- чудо природы
+    <h1>{{title}}</h1>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link {{ type == 'image' ? 'active' }}" href="/{{name}}/image">Фотокарточка</a>
+        </li>
+        <li class="nav-item">
+            <a class=" nav-link {{ type == 'text' ? 'active' }}" href="/{{name}}/info">Информация</a>
+        </li>
+    </ul>
 </div>
 
-<ul class="nav nav-pills">
-    <li class="nav-item">
-        <a  href="/quicksilver/image">
-            Фотокарточка</a>
-    </li>
-    <li class="nav-item">
-        <a  href="/quicksilver/info">
-            Информация</a>
-    </li>
-</ul>
+
+
+
 {% block objectContent %}
+
 {% endblock %}
 {% endblock %}
