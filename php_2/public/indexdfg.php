@@ -1,4 +1,4 @@
-<?php
+<?php 
     require_once '../vendor/autoload.php';
     $loader = new \Twig\Loader\FilesystemLoader('../views');
     $twig = new \Twig\Environment($loader);
@@ -8,20 +8,19 @@
     $template = "";
     $context = [];
 
-
     if ($url == "/") {
         $title = "Главная";
         $template = "main.twig";
         
-    }elseif (preg_match("#/wolverine#", $url)) {
-        $title = "Росомаха";
+    }elseif (preg_match("#/mermaid#", $url)) {
+        $title = "Русалка";
         $template = "base_image.twig";
-        $context['image'] = "/images/wolf.jpg";
+        $context['image'] = "/images/085_mermaid.jpg";
         
-    }elseif (preg_match("#/quicksilver#", $url)) {
-        $title = "Ртуть";
+    }elseif (preg_match("#/uranus#", $url)) {
+        $title = "Уран";
         $template = "base_image.twig";
-        $context['image'] = "/images/silver.jpg";
+        $context['image'] = "/images/086_uranus.png";
     }
     $menu = [ 
         [
@@ -29,12 +28,12 @@
             "url" => "/",
         ],
         [
-            "title" => "Росомаха",
-            "url" => "/wolverine",
+            "title" => "Русалка",
+            "url" => "/mermaid",
         ],
         [
-            "title" => "Ртуть",
-            "url" => "/quicksilver",
+            "title" => "Уран",
+            "url" => "/uranus",
         ]
     ];
     
@@ -42,10 +41,4 @@
     $context['title'] = $title;
     $context['menu'] = $menu;
     echo $twig->render($template, $context);
-
-
-
-
-
-
 ?>
