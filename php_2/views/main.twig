@@ -2,31 +2,16 @@
 {% block content %}
 
 <ul class="list-group">
+    {% for item in menu %}
     <li class="list-group-item">
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a href="/wolverine" class="btn btn-primary">Россомаха</a>
-            </li>
-            {% for item in menu %}
-            <li class="nav-item">
-                <a class=" btn btn-primary " href="{{item['url-main']}}">{{item.title}}</a>
-            </li>
-            {% endfor %}
-        </ul>
+        
+        
+        <a  type="button" class=" btn btn-primary " href="{{item['url-main']}}">{{item.title}}</a>
+        <a  type="button" class=" btn btn-light " href="{{item['url-image']}}">Фотокарточка</a>
+        <a  type="button" class=" btn btn-light " href="{{item['url-info']}}">Информация</a>
+        
     </li>
-    <li class="list-group-item">
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a href="/quicksilver" class="btn btn-primary">Ртуть</a>
-            </li>
-            <li class="nav-item">
-                <a href="/quicksilver/image" class="btn btn-light">Фотокарточка</a>
-            </li>
-            <li class="nav-item">
-                <a href="/quicksilver/info" class="btn btn-light">Информация</a>
-            </li>
-        </ul>
-    </li>
+    {% endfor %}
 </ul>
 
 

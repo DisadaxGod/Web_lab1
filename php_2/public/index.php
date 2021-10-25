@@ -44,18 +44,14 @@
     
     $menu = [ 
         [
-            "title" => "Главная",
-            "url" => "/",
-        ],
-        [
             "title" => "Росомаха",
-            "url" => "/wolverine",
+            "url-main" => "/wolverine",
             "url-image" => "/wolverine/image",
             "url-info" => "/wolverine/info",
         ],
         [
             "title" => "Ртуть",
-            "url" => "/quicksilver",
+            "url-main" => "/quicksilver",
             "url-image" => "/quicksilver/image",
             "url-info" => "/quicksilver/info",
         ]
