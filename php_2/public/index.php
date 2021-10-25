@@ -16,7 +16,7 @@
     }elseif (preg_match("#^/wolverine#", $url)) {
         $title = "Росомаха";
         $template = "__object.twig";
-        #$context['image'] = "/images/wolf.jpg";
+        $context['image'] = "/images/wolf.jpg";
         if (preg_match("#^/wolverine/image#", $url)){
             $template = "image.twig";
         } elseif(preg_match("#^/wolverine/info#", $url)){
@@ -26,31 +26,31 @@
     }elseif (preg_match("#^/quicksilver#", $url)) {
         $title = "Ртуть";
         $template = "__object.twig";
-        #$context['image'] = "/images/silver.jpg";
+        $context['image'] = "/images/silver.jpg";
         if (preg_match("#^/quicksilver/image#", $url)){
             $template = "image.twig";
         } elseif(preg_match("#^/quicksilver/info#", $url)){
             $template = "silver_info.twig";
         }
     }
-    #$menu = [ 
-      #  [
-      #      "title" => "Главная",
-      #      "url" => "/",
-      #  ],
-      #  [
-       #     "title" => "Росомаха",
-       #     "url" => "/wolverine",
-       # ],
-      #  [
-      #      "title" => "Ртуть",
-      #      "url" => "/quicksilver",
-      #  ]
-    #];
-        
+    
+    $menu = [ 
+        [
+            "title" => "Главная",
+            "url" => "/",
+        ],
+        [
+            "title" => "Росомаха",
+            "url" => "/wolverine",
+        ],
+        [
+            "title" => "Ртуть",
+            "url" => "/quicksilver",
+        ]
+    ];   
 
     $context['title'] = $title;
-    #$context['menu'] = $menu;
+    $context['menu'] = $menu;
     echo $twig->render($template, $context);
 
 

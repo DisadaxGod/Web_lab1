@@ -1,9 +1,20 @@
 {% extends "__layout.twig" %}
 
 {% block content %}
-    <div>
-        {{title}} -- чудо природы
-    </div>
-    {% block objectContent %}
-    {% endblock %}
+<div>
+    {{title}} -- чудо природы
+</div>
+
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a  href="/quicksilver/image">
+            Фотокарточка</a>
+    </li>
+    <li class="nav-item">
+        <a  href="/quicksilver/info">
+            Информация</a>
+    </li>
+</ul>
+{% block objectContent %}
+{% endblock %}
 {% endblock %}
