@@ -1,6 +1,9 @@
 <?php
     require_once '../vendor/autoload.php';
     require_once "../controllers/MainController.php";
+    require_once "../controllers/WolverineController.php";
+    require_once "../controllers/WolverineImageController.php";
+    require_once "../controllers/WolverineInfoController.php";
     $loader = new \Twig\Loader\FilesystemLoader('../views');
     $twig = new \Twig\Environment($loader);
     $url = $_SERVER["REQUEST_URI"];
@@ -18,17 +21,19 @@
         $controller = new MainController($twig);
         
     }elseif (preg_match("#^/wolverine#", $url)) {
-        $title = "Росомаха";
-        $template = "__object.twig";
-        $context['name'] = "wolverine";
+        
+        $controller = new WolverineController($twig);
+        
         if (preg_match("#^/wolverine/image#", $url)){
-            $template = "image.twig";
-            $context['image'] = "/images/wolf.jpg";
-            $context['type'] = "image";
+            //$template = "image.twig";
+            //$context['image'] = "/images/wolf.jpg";
+            //$context['type'] = "image";
+            $controller = new WolverineImageController($twig);
         } elseif(preg_match("#^/wolverine/info#", $url)){
-            $template = "wolf_info.twig";
-            $context['text'] = "/images/wolf_info.php";
-            $context['type'] = "text";
+            //$template = "wolf_info.twig";
+            //$context['text'] = "/images/wolf_info.php";
+            //$context['type'] = "text";
+            $controller = new WolverineInfoController($twig);
         }
         
     }elseif (preg_match("#^/quicksilver#", $url)) {

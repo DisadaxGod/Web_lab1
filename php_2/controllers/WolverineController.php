@@ -2,14 +2,18 @@
 require_once "TwigBaseController.php"; // импортим TwigBaseController
 
 class WolverineController extends TwigBaseController {
-    $title = "Росомаха";
-    $template = "__object.twig";
-    $context['name'] = "wolverine";
+    
+
+    public $title = "Росомаха";
+    public $template = "__object.twig";
+    
 
     public function getContext() : array
     {
         $context = parent::getContext(); 
         $context['title'] = $this->title; 
+        $context['name'] = "wolverine";
+        
         
         return $context;
     }
