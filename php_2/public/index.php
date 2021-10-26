@@ -1,5 +1,6 @@
 <?php
     require_once '../vendor/autoload.php';
+    require_once "../controllers/MainController.php";
     $loader = new \Twig\Loader\FilesystemLoader('../views');
     $twig = new \Twig\Environment($loader);
     $url = $_SERVER["REQUEST_URI"];
@@ -8,10 +9,13 @@
     $template = "";
     $context = [];
 
+    $controller = null;
+
 
     if ($url == "/") {
-        $title = "Главная";
-        $template = "main.twig";
+        //$title = "Главная";
+        //$template = "main.twig";
+        $controller = new MainController($twig);
         
     }elseif (preg_match("#^/wolverine#", $url)) {
         $title = "Росомаха";
@@ -57,7 +61,9 @@
         ]
     ];   
 
-    $context['title'] = $title;
+    
     $context['menu'] = $menu;
-    echo $twig->render($template, $context);
-?>
+
+    if ($controller) {
+        $controller->get();
+    }
