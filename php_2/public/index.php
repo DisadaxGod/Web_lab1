@@ -60,10 +60,4 @@
     $context['title'] = $title;
     $context['menu'] = $menu;
     echo $twig->render($template, $context);
-
-
-
-
-
-
 ?>
