@@ -6,9 +6,7 @@
     <li class="list-group-item">
         
         
-        <a  type="button" class=" btn btn-primary " href="{{item['url-main']}}">{{item.title}}</a>
-        <a  type="button" class=" btn btn-light " href="{{item['url-image']}}">Фотокарточка</a>
-        <a  type="button" class=" btn btn-light " href="{{item['url-info']}}">Информация</a>
+        {% include('menu.html') %}
         
     </li>
     {% endfor %}
