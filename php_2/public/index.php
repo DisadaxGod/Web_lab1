@@ -4,6 +4,7 @@
     require_once "../controllers/WolverineController.php";
     require_once "../controllers/WolverineImageController.php";
     require_once "../controllers/WolverineInfoController.php";
+    require_once "../controllers/Controller404.php";
     $loader = new \Twig\Loader\FilesystemLoader('../views');
     $twig = new \Twig\Environment($loader);
     $url = $_SERVER["REQUEST_URI"];
@@ -12,7 +13,7 @@
     $template = "";
     $context = [];
 
-    $controller = null;
+    $controller = new Controller404($twig);
 
 
     if ($url == "/") {
