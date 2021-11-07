@@ -5,6 +5,9 @@
     require_once "../controllers/WolverineImageController.php";
     require_once "../controllers/WolverineInfoController.php";
     require_once "../controllers/Controller404.php";
+    require_once "../controllers/SilverController.php";
+    require_once "../controllers/SilverImageController.php";
+    require_once "../controllers/SilverInfoController.php";
     $loader = new \Twig\Loader\FilesystemLoader('../views');
     $twig = new \Twig\Environment($loader);
     $url = $_SERVER["REQUEST_URI"];
@@ -38,17 +41,20 @@
         }
         
     }elseif (preg_match("#^/quicksilver#", $url)) {
-        $title = "Ртуть";
-        $template = "__object.twig";
-        $context['name'] = "quicksilver";
+        $controller = new SilverController($twig);
+        // $title = "Ртуть";
+        // $template = "__object.twig";
+        // $context['name'] = "quicksilver";
         if (preg_match("#^/quicksilver/image#", $url)){
-            $template = "image.twig";
-            $context['image'] = "/images/silver.jpg";
-            $context['type'] = "image";
+            // $template = "image.twig";
+            // $context['image'] = "/images/silver.jpg";
+            // $context['type'] = "image";
+            $controller = new SilverImageController($twig);
         } elseif(preg_match("#^/quicksilver/info#", $url)){
-            $template = "silver_info.twig";
-            $context['text'] = "/images/silver_info.php";
-            $context['type'] = "text";
+            // $template = "silver_info.twig";
+            // $context['text'] = "/images/silver_info.php";
+            // $context['type'] = "text";
+            $controller = new SilverInfoController($twig);
         }
     }
     
