@@ -1,12 +1,23 @@
 {% extends "__layout.twig" %}
 {% block content %}
 
+<!-- {% for object in mutants_objects %} -->
+    <!-- <img src="{{object.image}}" style="width: 800px;"/>  <br> -->
+    <!-- Название: {{ object.title }} <br>  
+{% endfor %}
+<pre>
+    {{ dump(mutants_objects) }} 
+</pre> -->
+
 <ul class="list-group">
-    {% for item in menu %}
-    <li class="list-group-item">
+    
+    {% for item in mutants_objects %}
+    <li class="list-group-item" style="display: flex;">
+        <div class="container">
+            <img src="{{item.image}}" style="width: 400px;"/>  <br>
+            {% include('menu.html') %}
+        </div>
         
-        
-        {% include('menu.html') %}
         
     </li>
     {% endfor %}

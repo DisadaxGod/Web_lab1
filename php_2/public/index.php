@@ -9,14 +9,21 @@
     require_once "../controllers/SilverImageController.php";
     require_once "../controllers/SilverInfoController.php";
     $loader = new \Twig\Loader\FilesystemLoader('../views');
-    $twig = new \Twig\Environment($loader);
+    $twig = new \Twig\Environment($loader, [
+        "debug" => true
+    ]);
+    $twig->addExtension(new \Twig\Extension\DebugExtension());
     $url = $_SERVER["REQUEST_URI"];
+
+
 
     $title = "";
     $template = "";
     $context = [];
 
     $controller = new Controller404($twig);
+
+    $pdo = new PDO("mysql:host=localhost;dbname=mutants;charset=utf8", "root", "");
 
 
     if ($url == "/") {
@@ -57,6 +64,7 @@
             $controller = new SilverInfoController($twig);
         }
     }
+
     
     $menu = [ 
         [
@@ -77,5 +85,6 @@
     $context['menu'] = $menu;
 
     if ($controller) {
+        $controller->setPDO($pdo);
         $controller->get();
     }
