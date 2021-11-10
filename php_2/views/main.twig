@@ -12,20 +12,30 @@
 <ul class="list-group">
     
     
-    <li class="list-group-item" style="display: flex;">
+    
         <div class="container">
             <div class="row">
                 {% for item in mutants_objects %}
-                <div class="col-2">
-                    {% include('menu.html') %}
-                </div>
+                    {% if loop.lenght == 1 %}
+                        <div class="col-12 col-xs-12 col-sm-8">
+                            {% include('menu.html') %}
+                        </div>
+                    {% elseif loop.lenght == 2 %}
+                        <div class="col-12 col-xs-12 col-sm-6">
+                            {% include('menu.html') %}
+                        </div>
+                    {% else %}
+                        <div class="col-12 col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-1">
+                            {% include('menu.html') %}
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
             
         </div>
         
         
-    </li>
+    
     
 </ul>
 
