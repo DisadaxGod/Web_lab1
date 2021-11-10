@@ -1,5 +1,18 @@
   {% import "macros.html" as macros %}
-  <div >{{ macros.btn(item.title, item['url-main'],true) }} </div>
 
-{{ macros.btn('Фотокарточка', item['url-image'],true,'btn btn-light') }} 
-{{ macros.btn('Информация',item['url-info'],true,'btn btn-light') }} 
+<ul class="list-group">
+  <div class="list-group-item">
+    <img src="{{item.image}}" class="img-fluid"/>  <br>
+  </div>
+  <div class="row">
+    <div >{{ macros.btn(item.title, item['url-main'],true) }} </div>
+    
+  </div>
+    <div class="col-auto">
+      {{ macros.btn('Фотокарточка', item['url-image'],true,'btn btn-light') }} 
+      {{ macros.btn('Информация',item['url-info'],true,'btn btn-light') }} 
+    </div>
+</ul>
+  
+  
+
