@@ -4,11 +4,15 @@
   <div class="list-group-item position-relative">
       <div class="position-absolute" style="right: 4px; top: 4px">
         <form action="/mutants-object/{{item.id}}/delete" method="POST">
-          
           <button type="submit" class="btn btn-danger">
             <i class="fas fa-times"></i>
           </button>
         </form>
+      </div>
+      <div class="position-absolute" style="left: 4px; top: 4px">
+          <a class="btn btn-primary" href="/mutants-object/{{item.id}}/edit">
+            <i class="fas fa-pen"></i>
+          </a>
       </div>
     <img src="{{item.image}}" class="img-fluid"/>  <br>
   </div>

@@ -6,6 +6,7 @@
     require_once "../controllers/SearchController.php";
     require_once "../controllers/MutantObjectCreateController.php";
     require_once "../controllers/MutantObjectDeleteController.php";
+    require_once "../controllers/MutantObjectUpdateController.php";
     require_once "../controllers/StudiosCreateController.php";
     require_once "../controllers/StudiosController.php";
     require_once "../controllers/Controller404.php";
@@ -42,6 +43,8 @@
     $router->add("/studios/create", StudiosCreateController::class);
     $router->add("/studios", StudiosController::class);
     $router->add("/mutants-object/(?P<id>\d+)/delete", MutantObjectDeleteController::class);
+    $router->add("/mutants-object/(?P<id>\d+)/edit", MutantObjectUpdateController::class);
+    
   
     
 
