@@ -7,11 +7,11 @@
   <div class="row mx-auto" >
     {{ macros.btn(item.title, "/mutants-object/" ~ item.id ~ "",true) }} 
     <div class="col-auto mx-auto ">
-      {{ macros.btn('Фотокарточка', "/mutants-object/" ~ item.id ~ "/image",false,'btn-link') }} 
+      {{ macros.btn('Фотокарточка', "/mutants-object/" ~ item.id ~ "?view=image",false,'btn-link') }} 
       
     </div>
     <div class="col-auto mx-auto ">
-      {{ macros.btn('Информация',"/mutants-object/" ~ item.id ~ "/info",false,'btn-link') }} 
+      {{ macros.btn('Информация',"/mutants-object/" ~ item.id ~ "?view=info",false,'btn-link') }} 
     </div>
   </div > 
     

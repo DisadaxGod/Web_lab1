@@ -2,8 +2,6 @@
     require_once '../vendor/autoload.php';
     require_once "../framework/autoload.php";
     require_once "../controllers/MainController.php";
-    require_once "../controllers/InfoController.php";
-    require_once "../controllers/ImageController.php";
     require_once "../controllers/ObjectController.php";
     require_once "../controllers/Controller404.php";
     
@@ -34,8 +32,8 @@
     $router = new Router($twig, $pdo);
     $router->add("/", MainController::class);
     $router->add("/mutants-object/(?P<id>\d+)", ObjectController::class);
-    $router->add("/mutants-object/(?P<id>\d+)/info", InfoController::class);
-    $router->add("/mutants-object/(?P<id>\d+)/image", ImageController::class);
+    // $router->add("/mutants-object/(?P<id>\d+)/info", InfoController::class);
+    // $router->add("/mutants-object/(?P<id>\d+)/image", ImageController::class);
     
 
 

@@ -8,12 +8,16 @@ class MainController extends BaseMutantsTwigController {
     public function getContext(): array
     {
         $context = parent::getContext();
+
+        if(isset($_GET['type'])){
+            $query = $this->pdo->prepare("SELECT * FROM mutants_objects WHERE type = :type");
+            $query->bindValue("type", $_GET['type']);
+            $query->execute();
+        }else {
+            $query = $this->pdo->query("SELECT * FROM mutants_objects");
+        }
         
-        $query = $this->pdo->query("SELECT * FROM mutants_objects");
-        
-        $query->execute();
         $context['mutants_objects'] = $query->fetchAll();
-        
         
 
         return $context;

@@ -14,7 +14,9 @@ class TwigBaseController extends BaseController {
         $this->twig = $twig;
     }
     
-    
+    public function getTemplate(){
+        return $this->template;
+    }
     
 
     public function getContext() : array
@@ -33,6 +35,6 @@ class TwigBaseController extends BaseController {
     
     
     public function get() {
-        echo $this->twig->render($this->template, $this->getContext());
+        echo $this->twig->render($this->getTemplate(), $this->getContext());
     }
 }
