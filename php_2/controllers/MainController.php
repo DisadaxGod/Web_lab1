@@ -1,7 +1,7 @@
 <?php
-require_once "TwigBaseController.php"; // импортим TwigBaseController
+require_once "BaseMutantsTwigController.php";
 
-class MainController extends TwigBaseController {
+class MainController extends BaseMutantsTwigController {
     public $template = "main.twig";
     public $title = "Главная";
 
@@ -11,8 +11,10 @@ class MainController extends TwigBaseController {
         
         $query = $this->pdo->query("SELECT * FROM mutants_objects");
         
-        
+        $query->execute();
         $context['mutants_objects'] = $query->fetchAll();
+        
+        
 
         return $context;
     }

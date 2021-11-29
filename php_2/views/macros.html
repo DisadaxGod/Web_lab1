@@ -1,10 +1,13 @@
 
-{% macro btn(textInButton, url,usetypeBtn,typeBtn="btn btn-primary") %} 
+{% macro btn(textInButton, url,usetypeBtn,typeBtn, type) %} 
     
     {% if usetypeBtn == true %}
-            <a  class="{{typeBtn}}" href="{{url}}">{{textInButton}}</a>
+
+            <a  class="btn btn-primary" href="{{url}}">{{textInButton}}</a>
+            
     {% endif %}
     {% if usetypeBtn == false %} 
-            <a href="{{url}}" class="btn btn-link">{{textInButton}}</a>
+            <a href="{{url}}" class="{{typeBtn}} {% if type == 'text' %} active {% endif %}">{{textInButton}}</a>
+            
     {% endif %}
 {% endmacro %}

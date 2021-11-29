@@ -9,21 +9,29 @@
         <li class="nav-item">
             
             
-            {{ macros.btn('Фотокарточка', '/'~ name~'/image', type == 'image','nav-link active') }}
+            {{ macros.btn('Фотокарточка', '/mutants_objects/'~ id ~'/image',false,'nav-link' , type == 'image') }}
         </li>
         <li class="nav-item">
             
             
-            {{macros.btn('Информация', '/'~ name~ '/info',type == 'text','nav-link  active' ) }}
+            {{macros.btn('Информация', '/mutants_objects/'~ id ~ '/info',false, 'nav-link' ,type == 'text') }}
             
         </li>
     </ul>
+    <ul class="list-group">
+        <li class="list-group-item">
+
+            {% block objectContent %}
+                <div class="container">
+                <p>{{description}}</p>
+                </div>
+            {% endblock %}
+        </li>
+    </ul>
+    
+
 </div>
 
 
 
-
-{% block objectContent %}
-
-{% endblock %}
 {% endblock %}
