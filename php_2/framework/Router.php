@@ -40,7 +40,7 @@ class Router {
         $url = $_SERVER["REQUEST_URI"]; // получили url
 
         $path = parse_url($url, PHP_URL_PATH);
-        echo $path;
+        
 
         // фиксируем в контроллер $default_controller
         $controller = $default_controller;

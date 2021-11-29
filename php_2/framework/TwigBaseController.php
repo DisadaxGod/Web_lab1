@@ -22,11 +22,9 @@ class TwigBaseController extends BaseController {
     public function getContext() : array
     {
         $context = parent::getContext(); 
-        $query = $this->pdo->prepare("SELECT * FROM mutants_objects");
-        $query->execute();
-        $data = $query->fetchAll();
+        
 
-        $context['mutants_objects'] = $data;
+        $context['title'] = $this->title;
 
        
         return $context;
