@@ -6,7 +6,7 @@ class BaseMutantsTwigController extends TwigBaseController{
     {
         $context = parent::getContext();
 
-        $query = $this->pdo->query("SELECT DISTINCT type FROM mutants_objects ORDER BY 1");
+        $query = $this->pdo->query("SELECT * FROM studios ORDER BY 1");
         $types = $query->fetchAll();
         $context['types'] = $types;
 

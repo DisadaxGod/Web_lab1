@@ -9,9 +9,9 @@
                 <label for="type" class="form-label">Тип</label>
                 <select name="type" class="form-select">
                     <option value="все">Все</option>
-                    <option value="FoxStudio">Fox Studio</option>
-                    <option value="Marvel">Marvel</option>
-                    
+                    {% for type in types %}
+                        <option value="{{type.title}}">{{type.title}}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="col-sm">

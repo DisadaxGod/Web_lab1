@@ -4,6 +4,9 @@
     require_once "../controllers/MainController.php";
     require_once "../controllers/ObjectController.php";
     require_once "../controllers/SearchController.php";
+    require_once "../controllers/MutantObjectCreateController.php";
+    require_once "../controllers/StudiosCreateController.php";
+    require_once "../controllers/StudiosController.php";
     require_once "../controllers/Controller404.php";
     
     
@@ -34,6 +37,9 @@
     $router->add("/", MainController::class);
     $router->add("/mutants-object/(?P<id>\d+)", ObjectController::class);
     $router->add("/search", SearchController::class);
+    $router->add("/mutants-object/create", MutantObjectCreateController::class);
+    $router->add("/studios/create", StudiosCreateController::class);
+    $router->add("/studios", StudiosController::class);
     // $router->add("/mutants-object/(?P<id>\d+)/info", InfoController::class);
     // $router->add("/mutants-object/(?P<id>\d+)/image", ImageController::class);
     

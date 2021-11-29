@@ -1,0 +1,28 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+    <h1>Добавление студий</h1>
+    <hr>
+
+    {% if message %}
+        <div class="alert alert-info">
+            {{message}}
+            <a href="/studios/{{id}}">открыть новый объект</a>
+        </div>
+    {% endif %}
+
+    <form action="" enctype="multipart/form-data" method="POST" class="row g-3">
+        <div class="col-4">
+            <label class="form-label">Название</label>
+            <input type="text" class="form-control" name="title">
+        </div>
+        <div class="mb-3">
+            <label for="formFileDisabled" class="form-label">Фотокарточка</label>
+            <input class="form-control" type="file" name="image" id="formFileDisabled" >
+          </div>
+        <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </div>
+    </form>
+
+{% endblock %}

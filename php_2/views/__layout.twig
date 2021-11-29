@@ -21,15 +21,20 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Главная</a>
                     </li>
-                    {% for type in types %}
+                    
                     <li class="nav-item">
-                        
-                        <a class="nav-link" href="/?type={{ type.type }}">{{ type.type|title }}</a>
+                        <a class="nav-link active" aria-current="page" href="/studios">Список студий</a>
                     </li>
-                    {% endfor %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/search">Поиск</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/mutants-object/create">Добавить мутантов</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/studios/create">Добавить студии</a>
+                    </li>
+                    
             </ul>
             </div>
         </div>

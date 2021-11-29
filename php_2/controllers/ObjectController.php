@@ -56,17 +56,6 @@ class ObjectController extends BaseMutantsTwigController {
             $context['description'] = $data['description']; 
         }
 
-        // if(isset($_GET['type'])){
-        //     $context = parent::getContext();
-        //     $query = $this->pdo->prepare("SELECT image,  type FROM mutants_objects WHERE type= :type");
-        //     $query->bindValue("type", $this->params['type']);
-        //     $query->execute();
-        //     $data = $query->fetch();
-        //     $context['image'] = $data['image'];
-        //     // $context['type'] = "image";
-        // }else {
-        //     $query = $this->pdo->query("SELECT * FROM mutants_objects");
-        // }
 
 
         return $context;
