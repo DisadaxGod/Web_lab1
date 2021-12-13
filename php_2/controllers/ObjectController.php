@@ -57,6 +57,11 @@ class ObjectController extends BaseMutantsTwigController {
         }
 
 
+        $context["my_session_message"] = isset($_SESSION['welcome_message']) ? $_SESSION['welcome_message'] : "";
+
+        $context["messages"] = isset($_SESSION['messages']) ? $_SESSION['messages'] : "";
+
+        
 
         return $context;
     }

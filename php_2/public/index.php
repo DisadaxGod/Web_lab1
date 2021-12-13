@@ -1,6 +1,7 @@
 <?php
     require_once '../vendor/autoload.php';
     require_once "../framework/autoload.php";
+    require_once "../framework/BaseMiddleware.php";
     require_once "../controllers/MainController.php";
     require_once "../controllers/ObjectController.php";
     require_once "../controllers/SearchController.php";
@@ -9,6 +10,13 @@
     require_once "../controllers/MutantObjectUpdateController.php";
     require_once "../controllers/StudiosCreateController.php";
     require_once "../controllers/StudiosController.php";
+    require_once "../framework/Rest.php";
+    require_once "../middlewares/LoginRequiredMiddeware.php";
+    require_once "../controllers/SetWelcomeController.php";
+    require_once "../middlewares/LoginRequiredMiddeware.php";
+    require_once "../middlewares/HistoryMiddleware.php";
+    require_once "../controllers/ControllerLogin.php";
+    require_once "../controllers/ControllerLogOut.php";
     require_once "../controllers/Controller404.php";
     
     
@@ -36,17 +44,33 @@
 
 
     $router = new Router($twig, $pdo);
-    $router->add("/", MainController::class);
-    $router->add("/mutants-object/(?P<id>\d+)", ObjectController::class);
-    $router->add("/search", SearchController::class);
-    $router->add("/mutants-object/create", MutantObjectCreateController::class);
-    $router->add("/studios/create", StudiosCreateController::class);
-    $router->add("/studios", StudiosController::class);
-    $router->add("/mutants-object/(?P<id>\d+)/delete", MutantObjectDeleteController::class);
-    $router->add("/mutants-object/(?P<id>\d+)/edit", MutantObjectUpdateController::class);
-    
-  
+    $router->add("/", MainController::class)
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("", BaseMiddleware::class);
+    $router->add("/mutants-object/(?P<id>\d+)", ObjectController::class)
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("/search", SearchController::class)
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("/mutants-object/create", MutantObjectCreateController::class)
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("/studios/create", StudiosCreateController::class) 
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("/studios", StudiosController::class)
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("/mutants-object/(?P<id>\d+)/delete", MutantObjectDeleteController::class)
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("/mutants-object/(?P<id>\d+)/edit", MutantObjectUpdateController::class)
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("/api/mutants-object", Rest::class)
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("/api/mutants-object/(?P<id>\d+)", Rest::class)
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("/set-welcome/", SetWelcomeController::class)
+    ->middleware(new LoginRequiredMiddeware())->middleware(new HistoryMiddleware());
+    $router->add("/login", ControllerLogin::class);
+    $router->add("/logout", ControllerLogOut::class);
     
 
 
+    
     $router->get_or_default(Controller404::class);

@@ -18,7 +18,7 @@ class MainController extends BaseMutantsTwigController {
         }
         
         $context['mutants_objects'] = $query->fetchAll();
-        
+        $context["messages"] = isset($_SESSION['messages']) ? $_SESSION['messages'] : "";
 
         return $context;
     }

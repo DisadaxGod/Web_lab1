@@ -26,7 +26,7 @@ class TwigBaseController extends BaseController {
 
         $context['title'] = $this->title;
 
-       
+        $context["messages"] = isset($_SESSION['messages']) ? $_SESSION['messages'] : "";
         return $context;
     }
 

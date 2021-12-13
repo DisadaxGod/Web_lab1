@@ -27,13 +27,26 @@ class MutantObjectUpdateController extends BaseMutantsTwigController {
         $description = $_POST['description'];
         $type = $_POST['type'];
         $info = $_POST['info'];
+        $tmp_name = $_FILES['image']['tmp_name'];
+        $name =  $_FILES['image']['name'];
 
-        $sql = <<<EOL
-        UPDATE mutants_objects SET title= :title, description= :description, type= :type, info= :info WHERE id= :id
-        EOL;
+        
+        if($_FILES['image']['name']==''){
+            $sql = <<<EOL
+            UPDATE mutants_objects SET title= :title, description= :description, type= :type, info= :info WHERE id= :id
+            EOL;
+           $query = $this->pdo->prepare($sql);
+           } else{
+               move_uploaded_file($tmp_name, "../public/media/$name");
+               $image_url = "/media/$name";
+               $sql = <<<EOL
+           UPDATE mutants_objects SET title= :title, description= :description, type= :type, info= :info,image= :image_url  WHERE id= :id
+           EOL; 
+           $query = $this->pdo->prepare($sql);
+           $query->bindValue("image_url", $image_url);
+        }
 
 
-        $query = $this->pdo->prepare($sql);
 
         $query->bindValue(":id", $id);
         $query->bindValue(":title", $title);

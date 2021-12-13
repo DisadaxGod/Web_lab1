@@ -1,0 +1,25 @@
+GET  http://localhost:9090/api/mutants-object
+###
+GET  http://localhost:9090/api/mutants-object/10 
+###
+POST  http://localhost:9090/api/mutants-object/10
+Content-Type: application/json 
+
+    {   "title":"02",
+        "description": "pilot",
+        "type": "Marvel",
+        "info":"baby tonight",
+        "image_url":""
+    }
+###
+POST  http://localhost:9090/api/mutants-object
+Content-Type: application/json 
+
+    {   "title":"02",
+        "description": "var",
+        "type": "Marvel",
+        "info":"bebt to night",
+        "image_url":""
+    }
+###
+DELETE http://localhost:9090/api/mutants-object/10

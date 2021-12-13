@@ -1,4 +1,5 @@
 {% extends "__layout.twig" %}
+
 {% block content %}
 
 
@@ -6,9 +7,11 @@
 <ul class="list-group">
     
     
-    
+        
         <div class="container">
+            
             <div class="row">
+                
                 {% for item in mutants_objects %}
                     {% if loop.lenght == 1 %}
                         <div class="col-12 col-xs-12 col-sm-8">
@@ -26,12 +29,14 @@
                 {% endfor %}
             </div>
             
+            
         </div>
         
         
     
     
 </ul>
+
 
 
 

@@ -27,10 +27,14 @@
                     {% endfor %}
             </select>
         </div>
-        <!-- <div class="mb-3">
-            <label for="formFileDisabled" class="form-label">Фотокарточка</label>
-            <input class="form-control" type="file" name="image" id="formFileDisabled" >
-          </div> -->
+        <div class="col-4">
+            <a class="ripple" href="/object/{{object.id}}"><img src="{{ object.image }}"
+    class=" p-1 img-thumbnail rounded" /></a>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Выберите картинку</label>
+                <input class="form-control" type="file" name="image">
+            </div>
         <div class="col-12">
             <textarea name="info" placeholder="Полное описание..." class="form-control" rows="5">{{object.info}}</textarea>
         </div>
