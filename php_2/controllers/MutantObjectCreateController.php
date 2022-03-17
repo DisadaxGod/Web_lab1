@@ -7,7 +7,7 @@ class MutantObjectCreateController extends BaseMutantsTwigController {
 
     public function get(array $context)
     {
-        echo $_SERVER['REQUEST_METHOD'];
+        // echo $_SERVER['REQUEST_METHOD'];
         
         parent::get($context);
     }

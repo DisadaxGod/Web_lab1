@@ -9,21 +9,22 @@
     <style>
     .block{
         display: block;
-        border: 2px solid darkblue;
+        border: 2px solid rgb(134, 0, 139);
         border-radius: 5px;
         padding: 5px;
         width: 500px;
         background-color:darkgray;
         box-sizing:content-box;
+        
     } 
     </style>
 </head>
-<body class="text-center row justify-content-center">
+<body class="text-center row justify-content-center" style="color: rgb(56, 24, 24);">
     <form class="form-signin block" method="post">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Login</label>
+      <h1 class="h3 mb-3 font-weight-normal">Авторизируйтесь</h1>
+      <label for="inputEmail" class="sr-only">Логин</label>
       <input type="login" name="login" id="inputEmail" class="form-control" placeholder="Login" required="" autofocus="">
-      <label for="inputPassword" class="sr-only">Password</label>
+      <label for="inputPassword" class="sr-only">Пароль</label>
       <input type="password" name="password" id="inputPassword" class="form-control mb-2" placeholder="Password" required="">
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
